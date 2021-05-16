@@ -7,6 +7,9 @@ describe('App', () => {
   test('when user is at the center of Paris, some hotels are found', () => {
     expect(app.findHotelsNearby(48.856564, 2.351711, 2000).length).toBeGreaterThan(0);
   });
+  test('when user is at the center of Paris, 19 hotels are found', () => {
+    expect(app.findHotelsNearby(48.856564, 2.351711, 2000).length).toBe(19);
+  });
   test('findHotelNearbyWithBestOffer() returns null when no args are passed', () => {
     expect(app.findHotelNearbyWithBestOffer()).toBeNull();
   });

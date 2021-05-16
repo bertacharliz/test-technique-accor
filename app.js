@@ -5,7 +5,18 @@ const helper = require('./services/helper');
 
 function findHotelsNearby(lat, lng, radius) {
     // TODO implement me
-	return [];
+    const nearbyHotels = []
+    const allHotels = hotelService.getHotels()
+
+    // Otherwise use filter method in array
+    for ( hotel of allHotels) {
+        if (helper.distance(lat, lng, hotel.latitude, hotel.longitude) < radius) {
+            nearbyHotels.push(hotel)
+            //console.log(hotel)
+        }
+    }
+    //console.log('nb hotel', nearbyHotels.length)
+	return nearbyHotels;
 }
 
 function findHotelNearbyWithBestOffer(lat, lng, radius, date) {
