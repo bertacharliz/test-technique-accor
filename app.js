@@ -4,7 +4,6 @@ const priceService = require('./services/price-service');
 const helper = require('./services/helper');
 
 function findHotelsNearby(lat, lng, radius) {
-    // TODO implement me
     const nearbyHotels = []
     const allHotels = hotelService.getHotels()
 
@@ -20,8 +19,41 @@ function findHotelsNearby(lat, lng, radius) {
 }
 
 function findHotelNearbyWithBestOffer(lat, lng, radius, date) {
-    // TODO implement me
-    return null;
+    const nearbyHotels = findHotelsNearby(lat, lng, radius)
+    let bestOffer = null
+    
+    for (hotel of nearbyHotels) {
+        // Créer une fonction qui pour un hôtel (ridCode) à une date donnée trouve le prix d'une chambre standard
+        const standardOffer = priceService.getStandardPriceForDate(hotel.ridCode, date)
+        if (bestOffer === null) {
+            bestOffer = hotel
+            bestOffer.offer = standardOffer
+        }
+
+        // console.log(bestOffer)
+        if (standardOffer.price < bestOffer.offer.price) {
+            bestOffer = hotel
+            bestOffer.offer = standardOffer
+        } 
+        
+        else if (standardOffer.price === bestOffer.offer.price) {
+            if (helper.distance(lat, lng, hotel.latitude, hotel.longitude) < helper.distance(lat, lng, bestOffer.latitude, bestOffer.longitude)) {
+                bestOffer = hotel
+                bestOffer.offer = standardOffer
+            }
+        }
+    }
+    
+    //console.log(bestOffer)
+    return bestOffer ? {
+        ridCode: bestOffer.ridCode,
+        countryCode: bestOffer.countryCode,
+        localRating: bestOffer.localRating,
+        address:  bestOffer.address,
+        commercialName: bestOffer.commercialName,
+        distance: helper.distance(lat, lng, bestOffer.latitude, bestOffer.longitude),
+        offer: bestOffer.offer
+    } : null
 }
 
 module.exports = {
