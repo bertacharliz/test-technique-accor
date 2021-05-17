@@ -1,0 +1,142 @@
+/** Heading **/
+.ItemHeading {
+  font-weight: 400;
+  text-transform: capitalize;
+  margin-top: 8px; }
+  @media screen and (min-width: 768px) {
+    .ItemHeading {
+      margin-top: 0; } }
+  .ItemHeading__TitleLink {
+    display: block;
+    /*  color: #333; */
+    font-weight: 500;
+    font-size: 1.5rem;
+    font-family: Roboto,Arial,sans-serif;
+    line-height: 1.75rem;
+    text-decoration: none; }
+
+/** Card Item Sections**/
+.CardItem__DetailsRow {
+  position: relative;
+  padding-bottom: 8px; }
+  .CardItem__DetailsRow--accent {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #F4F4F6;
+    min-height: 130px;
+    padding: 1rem;
+    border-radius: 6px; }
+
+.DetailsLocation {
+  font-size: .75rem;
+  line-height: 24px; }
+
+/** Tripadvosir **/
+.TripadvisorDatails____PictoScore {
+  display: inline-block; }
+
+.TripadvisorDatails__Score {
+  display: inline-block;
+  font-weight: 700;
+  font-size: .75rem; }
+
+.TripadvisorDatails__Reviews {
+  display: inline-block;
+  font-size: .75rem; }
+
+/** Utilities **/
+.UtilitiesGroup {
+  display: grid;
+  grid-template-columns: repeat(5, 30px);
+  align-items: start;
+  padding: 8px 0; }
+
+.UtilityItem {
+  width: 30px; }
+
+.imageItem {
+  border-radius: 8px;
+  max-width: 100%; }
+
+.Thumbnail {
+  color: #6f6e77;
+  position: absolute;
+  right: 5px;
+  top: -20px;
+  background: white;
+  font-size: .75rem;
+  padding: 8px;
+  border-radius: 24px;
+  text-transform: uppercase; }
+
+.PriceDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; }
+  .PriceDetails__Description {
+    color: #6f6e77;
+    margin-bottom: 8px;
+    font-size: .875rem;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 8px;
+    width: 100%; }
+  .PriceDetails__PricesBlock {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%; }
+  .PriceDetails__Price {
+    color: #333;
+    padding: 0 8px; }
+    .PriceDetails__Price--hightlight {
+      color: #3d4892; }
+
+/** Icons **/
+.parking-icon,
+.wifi-icon,
+.restaurant-icon,
+.air-conditioning-icon,
+.brevage-icon {
+  fill: #1e1852; }
+
+.rating-star-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: -5px;
+  vertical-align: super; }
+
+/** CTA **/
+.CTABlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 8px;
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .CTABlock {
+      flex-direction: row; } }
+  .CTABlock__Link {
+    color: #34658d;
+    display: inline-block;
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 1.1rem;
+    text-decoration: underline; }
+  .CTABlock__Button {
+    background-color: #068483;
+    color: #fff;
+    display: inline-block;
+    padding: 12px 16px;
+    margin-top: 16px;
+    font-size: 1rem;
+    line-height: 1.1rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer; }
+    @media screen and (min-width: 768px) {
+      .CTABlock__Button {
+        margin-top: 0; } }
